@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Manuel Rodríguez Sutil</title>
+</head>
+<body>
+
+<header>
+    <h1>Manuel Rodríguez Sutil</h1>
+    <p>Estudiante de Ciencia de Datos | Programador de Software</p>
+
+    <nav class="links">
+        <a href="https://github.com/manursutil" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://www.linkedin.com/in/manuel-rodr%C3%ADguez-sutil-319b34376/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="cv.pdf" target="_blank">CV</a>
+    </nav>
+</header>
+
+<main>
+
+    <section>
+        <h2>Sobre mí</h2>
+        <p>
+            Estudiante con interés en sistemas, machine learning y software de bajo nivel.
+            Enfocado en entender cómo funcionan las cosas internamente y construir soluciones
+            simples, robustas y mantenibles.
+        </p>
+    </section>
+
+    <section>
+        <h2>Proyectos</h2>
+
+        <article class="project">
+            <h3 class="project-title" data-project="brain-mri">Clasificación de Tumores Cerebrales con MRI</h3>
+            <p>
+                Aplicación de deep learning en producción que clasifica imágenes de resonancia
+                magnética cerebral en cuatro tipos de tumor utilizando un modelo ResNet18 con
+                PyTorch.
+            </p>
+            <p><strong>Stack:</strong> Python, PyTorch, FastAPI, Docker, MLOps</p>
+            <p>
+                Links:
+                <a href="https://github.com/manursutil/brain-mri-classifier" target="_blank" rel="noopener noreferrer">
+                    GitHub
+                </a>
+            </p>
+        </article>
+
+        <article class="project">
+            <h3 class="project-title" data-project="obesity">Predicción de Obesidad con Machine Learning</h3>
+            <p>
+                Proyecto de análisis de datos y machine learning orientado a la predicción de niveles
+                de obesidad a partir de variables demográficas y de estilo de vida.
+            </p>
+            <p><strong>Stack:</strong> Python, Pandas, NumPy, Scikit-learn</p>
+            <p>
+                Links:
+                <a href="https://github.com/manursutil/obesity" target="_blank" rel="noopener noreferrer">
+                    GitHub
+                </a>
+            </p>
+        </article>
+
+        <article class="project">
+            <h3 class="project-title" data-project="mini-shell">Mini Shell en C</h3>
+            <p>
+                Implementación de una shell tipo Unix escrita en C, con soporte para parsing y
+                tokenización de comandos, ejecución de programas externos mediante fork() y
+                execvp(), y piping simple (|) entre comandos.
+            </p>
+            <p><strong>Stack:</strong> C, POSIX, Unix</p>
+            <p>
+                Links:
+                <a href="https://github.com/manursutil/mini-shell-c" target="_blank" rel="noopener noreferrer">
+                    GitHub
+                </a>
+            </p>
+        </article>
+
+        <article class="project">
+            <h3 class="project-title" data-project="neural-network">Redes Neuronales desde Cero con NumPy</h3>
+            <p>
+                Implementación de redes neuronales feedforward desarrolladas desde cero
+                utilizando NumPy, sin librerías de machine learning.
+            </p>
+            <p><strong>Stack:</strong> Python, NumPy, Machine Learning</p>
+            <p>
+                Links:
+                <a href="https://github.com/manursutil/simple-nn-numpy" target="_blank" rel="noopener noreferrer">
+                    GitHub
+                </a>
+            </p>
+        </article>
+
+        <article class="project">
+            <h3 class="project-title" data-project="snake">Snake en C con Raylib</h3>
+            <p>
+                Implementación del juego clásico Snake desarrollada en C utilizando las
+                librerías Raylib y Raymath. El jugador controla una serpiente que crece al
+                comer manzanas.
+            </p>
+            <p><strong>Stack:</strong> C, Raylib, Raymath</p>
+            <p>
+                Links:
+                <a href="https://github.com/manursutil/snake-c" target="_blank" rel="noopener noreferrer">
+                    GitHub
+                </a>
+            </p>
+        </article>
+
+    </section>
+
+</main>
+
+<!-- Modal Popup -->
+<div id="project-modal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <div class="modal-title-bar"></div>
+            <button class="modal-close" id="modal-close">&times;</button>
+        </div>
+        <div class="modal-body">
+            <h2 id="modal-project-title"></h2>
+            <img id="modal-project-image" src="" alt="Project preview">
+            <div id="modal-project-description"></div>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

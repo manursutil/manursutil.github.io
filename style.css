@@ -1,0 +1,342 @@
+/* Classic academic / university homepage style */
+body {
+    background-color: #e6e6e6; /* gris claro de fondo */
+    /* Patrón de puntitos estilo Mac OS clásico */
+    background-image: 
+        radial-gradient(circle, #d0d0d0 1px, transparent 1px);
+    background-size: 4px 4px;
+    color: #000000;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 16px;
+    line-height: 1.45;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Main container looks like a table/page */
+header,
+main {
+    background-color: #ffffff;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #000;
+}
+
+/* Slight separation between header and main */
+header {
+    margin-bottom: 15px;
+}
+
+/* Headings */
+h1 {
+    font-size: 30px;
+    margin: 0 0 4px 0;
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 22px;
+    margin: 18px 0 10px 0;
+    font-weight: bold;
+}
+
+h3 {
+    font-size: 18px;
+    margin: 14px 0 6px 0;
+    font-weight: bold;
+}
+
+/* Text */
+p {
+    margin: 0 0 10px 0;
+}
+
+/* Header subtitle / tagline if present */
+.subtitle {
+    margin: 0;
+}
+
+.tagline {
+    margin: 0 0 6px 0;
+}
+
+/* Navigation links under name */
+.links {
+    margin-top: 6px;
+}
+
+.links a {
+    margin-right: 12px;
+}
+
+/* Classic link colors */
+a:link,
+a:visited {
+    color: #0000ee;
+    text-decoration: underline;
+}
+
+a:hover,
+a:active {
+    color: #551a8b;
+}
+
+/* Sections */
+section {
+    margin-bottom: 20px;
+}
+
+/* Projects */
+.project {
+    margin-bottom: 18px;
+    padding-bottom: 12px;
+    border-bottom: 1px dotted #000;
+}
+
+/* Remove border from last project */
+.project:last-child {
+    border-bottom: none;
+}
+
+/* Stack label stays simple and readable */
+.project p strong {
+    font-weight: bold;
+}
+
+/* Project title clickable */
+.project-title {
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.project-title:hover {
+    color: #0000cc;
+    text-decoration: underline;
+}
+
+/* Horizontal rule as secondary separator (optional now) */
+hr {
+    border: 0;
+    border-top: 1px solid #000;
+    margin: 12px 0;
+    opacity: 0.4;
+}
+
+/* Modal Popup - Mac OS 9 style */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    animation: fadeIn 0.2s;
+    padding: 20px;
+}
+
+.modal.show {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background: linear-gradient(to bottom, #ffffff 0%, #ebebeb 100%);
+    width: 90%;
+    max-width: 700px;
+    max-height: 90vh;
+    border: 1px solid #000;
+    box-shadow: 
+        inset 1px 1px 0 #fff,
+        inset -1px -1px 0 #999,
+        3px 3px 8px rgba(0,0,0,0.4);
+    position: relative;
+    animation: slideDown 0.3s ease-out;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Title bar */
+.modal-header {
+    background: linear-gradient(to bottom, #f0f0f0 0%, #d0d0d0 100%);
+    border-bottom: 1px solid #999;
+    box-shadow: inset 0 1px 0 #fff;
+    padding: 0;
+    height: 22px;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.modal-title-bar {
+    position: absolute;
+    top: 4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 14px;
+    background: repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 4px,
+        #999 4px,
+        #999 5px
+    );
+    opacity: 0.4;
+}
+
+.modal-close {
+    position: absolute;
+    left: 6px;
+    top: 4px;
+    width: 14px;
+    height: 14px;
+    background: linear-gradient(to bottom, #fefefe, #e0e0e0);
+    border: 1px solid #000;
+    box-shadow: inset 1px 1px 0 rgba(255,255,255,0.8);
+    border-radius: 2px;
+    font-size: 10px;
+    line-height: 12px;
+    text-align: center;
+    cursor: pointer;
+    padding: 0;
+    color: #000;
+}
+
+.modal-close:hover {
+    background: linear-gradient(to bottom, #ff6b6b, #ff4444);
+}
+
+.modal-close:active {
+    background: linear-gradient(to bottom, #cc0000, #ff4444);
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.3);
+}
+
+/* Modal body */
+.modal-body {
+    padding: 20px;
+    overflow-y: auto;
+    flex: 1;
+    min-height: 0;
+}
+
+.modal-body h2 {
+    margin-top: 0;
+    font-size: 20px;
+    padding: 6px 10px;
+    background: linear-gradient(to bottom, #e8e8e8, #d0d0d0);
+    border: 1px solid #999;
+    box-shadow: inset 0 1px 0 #fff;
+}
+
+.modal-body img {
+    width: 100%;
+    height: auto;
+    margin: 15px 0;
+    border: 1px solid #000;
+    box-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.modal-body p {
+    line-height: 1.5;
+    margin-bottom: 12px;
+}
+
+.modal-body ul {
+    margin: 10px 0;
+    padding-left: 25px;
+}
+
+.modal-body li {
+    margin-bottom: 6px;
+    line-height: 1.4;
+}
+
+.modal-body ol {
+    margin: 10px 0;
+    padding-left: 25px;
+}
+
+.modal-body ol li {
+    margin-bottom: 6px;
+}
+
+.modal-body code {
+    background: #f0f0f0;
+    padding: 2px 6px;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    font-family: "Courier New", monospace;
+    font-size: 14px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideDown {
+    from { 
+        transform: translateY(-30px);
+        opacity: 0;
+    }
+    to { 
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Scrollbar para el modal */
+.modal-body::-webkit-scrollbar {
+    width: 16px;
+}
+
+.modal-body::-webkit-scrollbar-track {
+    background: #ddd;
+    border: 1px solid #999;
+}
+
+.modal-body::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, #f0f0f0, #c0c0c0);
+    border: 1px solid #000;
+    box-shadow: inset 1px 1px 0 rgba(255,255,255,0.7);
+}
+
+.modal-body::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(to bottom, #f8f8f8, #d0d0d0);
+}
+
+/* Small screens: reduce margins, keep structure */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+    header,
+    main {
+        padding: 15px;
+    }
+    h1 {
+        font-size: 26px;
+    }
+    
+    .modal {
+        padding: 10px;
+    }
+    
+    .modal-content {
+        width: 95%;
+        max-height: 95vh;
+    }
+    
+    .modal-body {
+        padding: 15px;
+    }
+    
+    .modal-body h2 {
+        font-size: 18px;
+    }
+}
