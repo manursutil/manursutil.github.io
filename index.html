@@ -10,7 +10,7 @@
 
 <header>
     <h1>Manuel Rodríguez Sutil</h1>
-    <p>Estudiante de Ciencia de Datos | Programador de Software</p>
+    <p>Estudiante de Ciencia de Datos | Desarrollador de Software</p>
 
     <nav class="links">
         <a href="https://github.com/manursutil" target="_blank" rel="noopener noreferrer">GitHub</a>
@@ -34,7 +34,7 @@
         <h2>Proyectos</h2>
 
         <article class="project">
-            <h3 class="project-title" data-project="brain-mri">Clasificación de Tumores Cerebrales con MRI</h3>
+            <h3>Clasificación de Tumores Cerebrales con MRI</h3>
             <p>
                 Aplicación de deep learning en producción que clasifica imágenes de resonancia
                 magnética cerebral en cuatro tipos de tumor utilizando un modelo ResNet18 con
@@ -47,25 +47,27 @@
                     GitHub
                 </a>
             </p>
+            <p><button class="project-open" data-project="brain-mri">Ver detalles</button></p>
         </article>
 
         <article class="project">
-            <h3 class="project-title" data-project="obesity">Predicción de Obesidad con Machine Learning</h3>
+            <h3>Snake AI con Reinforcement Learning</h3>
             <p>
-                Proyecto de análisis de datos y machine learning orientado a la predicción de niveles
-                de obesidad a partir de variables demográficas y de estilo de vida.
+                Proyecto híbrido que combina un motor de Snake en C (Raylib) con un agente
+                DQN en Python (PyTorch) para entrenar y visualizar a la IA jugando.
             </p>
-            <p><strong>Stack:</strong> Python, Pandas, NumPy, Scikit-learn</p>
+            <p><strong>Stack:</strong> C, Raylib, Python, PyTorch, DQN</p>
             <p>
                 Links:
-                <a href="https://github.com/manursutil/obesity" target="_blank" rel="noopener noreferrer">
+                <a href="https://github.com/manursutil/snake-ai" target="_blank" rel="noopener noreferrer">
                     GitHub
                 </a>
             </p>
+            <p><button class="project-open" data-project="snake">Ver detalles</button></p>
         </article>
 
         <article class="project">
-            <h3 class="project-title" data-project="mini-shell">Mini Shell en C</h3>
+            <h3>Mini Shell en C</h3>
             <p>
                 Implementación de una shell tipo Unix escrita en C, con soporte para parsing y
                 tokenización de comandos, ejecución de programas externos mediante fork() y
@@ -78,10 +80,11 @@
                     GitHub
                 </a>
             </p>
+            <p><button class="project-open" data-project="mini-shell">Ver detalles</button></p>
         </article>
 
         <article class="project">
-            <h3 class="project-title" data-project="neural-network">Redes Neuronales desde Cero con NumPy</h3>
+            <h3>Redes Neuronales desde Cero con NumPy</h3>
             <p>
                 Implementación de redes neuronales feedforward desarrolladas desde cero
                 utilizando NumPy, sin librerías de machine learning.
@@ -93,22 +96,23 @@
                     GitHub
                 </a>
             </p>
+            <p><button class="project-open" data-project="neural-network">Ver detalles</button></p>
         </article>
 
         <article class="project">
-            <h3 class="project-title" data-project="snake">Snake en C con Raylib</h3>
+            <h3>Predicción de Obesidad con Machine Learning</h3>
             <p>
-                Implementación del juego clásico Snake desarrollada en C utilizando las
-                librerías Raylib y Raymath. El jugador controla una serpiente que crece al
-                comer manzanas.
+                Proyecto de análisis de datos y machine learning orientado a la predicción de niveles
+                de obesidad a partir de variables demográficas y de estilo de vida.
             </p>
-            <p><strong>Stack:</strong> C, Raylib, Raymath</p>
+            <p><strong>Stack:</strong> Python, Pandas, NumPy, Scikit-learn</p>
             <p>
                 Links:
-                <a href="https://github.com/manursutil/snake-c" target="_blank" rel="noopener noreferrer">
+                <a href="https://github.com/manursutil/obesity" target="_blank" rel="noopener noreferrer">
                     GitHub
                 </a>
             </p>
+            <p><button class="project-open" data-project="obesity">Ver detalles</button></p>
         </article>
 
     </section>
@@ -118,14 +122,13 @@
 <!-- Modal Popup -->
 <div id="project-modal" class="modal">
     <div class="modal-content">
-        <div class="modal-header">
-            <div class="modal-title-bar"></div>
-            <button class="modal-close" id="modal-close">&times;</button>
-        </div>
         <div class="modal-body">
             <h2 id="modal-project-title"></h2>
             <img id="modal-project-image" src="" alt="Project preview">
             <div id="modal-project-description"></div>
+        </div>
+        <div class="modal-footer">
+            <button class="modal-close" id="modal-close">Close</button>
         </div>
     </div>
 </div>

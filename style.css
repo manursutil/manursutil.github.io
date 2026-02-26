@@ -1,140 +1,157 @@
-/* Classic academic / university homepage style */
+:root {
+    --bg-page: #e5e5e5;
+    --dot: #cfcfcf;
+    --surface: #ffffff;
+    --surface-2: #f0f0f0;
+    --text: #000000;
+    --muted: #333333;
+    --line: #000000;
+    --line-soft: #6a6a6a;
+    --link: #0000ee;
+    --link-hover: #551a8b;
+    --radius: 0;
+    --space-1: 6px;
+    --space-2: 10px;
+    --space-3: 14px;
+    --space-4: 20px;
+    --container: 920px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
 body {
-    background-color: #e6e6e6; /* gris claro de fondo */
-    /* Patrón de puntitos estilo Mac OS clásico */
-    background-image: 
-        radial-gradient(circle, #d0d0d0 1px, transparent 1px);
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-page);
+    background-image: radial-gradient(circle, var(--dot) 1px, transparent 1px);
     background-size: 4px 4px;
-    color: #000000;
+    color: var(--text);
     font-family: "Times New Roman", Times, serif;
     font-size: 16px;
     line-height: 1.45;
-    margin: 0;
-    padding: 20px;
+    padding: var(--space-4);
 }
 
-/* Main container looks like a table/page */
 header,
 main {
-    background-color: #ffffff;
-    max-width: 900px;
+    width: min(100%, var(--container));
     margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #000;
+    background-color: var(--surface);
+    border: 1px solid var(--line);
+    padding: var(--space-4);
 }
 
-/* Slight separation between header and main */
 header {
-    margin-bottom: 15px;
+    margin-bottom: var(--space-3);
 }
 
-/* Headings */
+h1,
+h2,
+h3 {
+    margin: 0;
+    font-weight: bold;
+    line-height: 1.25;
+}
+
 h1 {
     font-size: 30px;
-    margin: 0 0 4px 0;
-    font-weight: bold;
+    margin-bottom: 4px;
 }
 
 h2 {
     font-size: 22px;
-    margin: 18px 0 10px 0;
-    font-weight: bold;
+    margin-bottom: var(--space-2);
 }
 
 h3 {
     font-size: 18px;
-    margin: 14px 0 6px 0;
-    font-weight: bold;
+    margin-bottom: var(--space-1);
 }
 
-/* Text */
 p {
-    margin: 0 0 10px 0;
-}
-
-/* Header subtitle / tagline if present */
-.subtitle {
     margin: 0;
 }
 
-.tagline {
-    margin: 0 0 6px 0;
+p + p {
+    margin-top: var(--space-2);
 }
 
-/* Navigation links under name */
+header > p {
+    margin-bottom: var(--space-1);
+}
+
 .links {
-    margin-top: 6px;
+    margin-top: var(--space-2);
 }
 
 .links a {
     margin-right: 12px;
 }
 
-/* Classic link colors */
 a:link,
 a:visited {
-    color: #0000ee;
+    color: var(--link);
     text-decoration: underline;
 }
 
 a:hover,
 a:active {
-    color: #551a8b;
+    color: var(--link-hover);
 }
 
-/* Sections */
-section {
-    margin-bottom: 20px;
+section + section {
+    margin-top: 22px;
 }
 
-/* Projects */
 .project {
-    margin-bottom: 18px;
-    padding-bottom: 12px;
-    border-bottom: 1px dotted #000;
+    border: 1px dotted var(--line-soft);
+    padding: var(--space-3);
+    background: #fcfcfc;
 }
 
-/* Remove border from last project */
-.project:last-child {
-    border-bottom: none;
+.project + .project {
+    margin-top: var(--space-2);
 }
 
-/* Stack label stays simple and readable */
 .project p strong {
     font-weight: bold;
 }
 
-/* Project title clickable */
-.project-title {
+.project-open {
+    min-width: 98px;
+    height: 28px;
+    border: 1px solid var(--line);
+    border-radius: 0;
+    background: #ffffff;
+    color: var(--text);
+    font-family: "Times New Roman", Times, serif;
+    font-size: 15px;
+    line-height: 1;
+    padding: 0 12px;
     cursor: pointer;
-    transition: color 0.2s;
 }
 
-.project-title:hover {
-    color: #0000cc;
-    text-decoration: underline;
+.project-open:hover {
+    background: #f0f0f0;
 }
 
-/* Horizontal rule as secondary separator (optional now) */
-hr {
-    border: 0;
-    border-top: 1px solid #000;
-    margin: 12px 0;
-    opacity: 0.4;
+.project-open:active {
+    background: #e2e2e2;
 }
 
-/* Modal Popup - Mac OS 9 style */
 .modal {
     display: none;
     position: fixed;
+    inset: 0;
     z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    animation: fadeIn 0.2s;
-    padding: 20px;
+    background: rgba(0, 0, 0, 0.5);
+    padding: var(--space-4);
 }
 
 .modal.show {
@@ -144,199 +161,117 @@ hr {
 }
 
 .modal-content {
-    background: linear-gradient(to bottom, #ffffff 0%, #ebebeb 100%);
-    width: 90%;
-    max-width: 700px;
-    max-height: 90vh;
-    border: 1px solid #000;
-    box-shadow: 
-        inset 1px 1px 0 #fff,
-        inset -1px -1px 0 #999,
-        3px 3px 8px rgba(0,0,0,0.4);
-    position: relative;
-    animation: slideDown 0.3s ease-out;
-    overflow: hidden;
+    width: min(100%, 760px);
+    max-height: 92vh;
+    background: #ffffff;
+    border: 1px solid var(--line);
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.35);
     display: flex;
     flex-direction: column;
-}
-
-/* Title bar */
-.modal-header {
-    background: linear-gradient(to bottom, #f0f0f0 0%, #d0d0d0 100%);
-    border-bottom: 1px solid #999;
-    box-shadow: inset 0 1px 0 #fff;
-    padding: 0;
-    height: 22px;
+    overflow: hidden;
     position: relative;
-    flex-shrink: 0;
-}
-
-.modal-title-bar {
-    position: absolute;
-    top: 4px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 120px;
-    height: 14px;
-    background: repeating-linear-gradient(
-        90deg,
-        transparent,
-        transparent 4px,
-        #999 4px,
-        #999 5px
-    );
-    opacity: 0.4;
 }
 
 .modal-close {
-    position: absolute;
-    left: 6px;
-    top: 4px;
-    width: 14px;
-    height: 14px;
-    background: linear-gradient(to bottom, #fefefe, #e0e0e0);
-    border: 1px solid #000;
-    box-shadow: inset 1px 1px 0 rgba(255,255,255,0.8);
-    border-radius: 2px;
-    font-size: 10px;
-    line-height: 12px;
+    min-width: 62px;
+    height: 26px;
+    border: 1px solid var(--line);
+    border-radius: 0;
+    background: #ffffff;
+    color: var(--text);
+    font-family: "Times New Roman", Times, serif;
+    font-size: 15px;
+    line-height: 1;
     text-align: center;
+    padding: 0 10px;
     cursor: pointer;
-    padding: 0;
-    color: #000;
 }
 
 .modal-close:hover {
-    background: linear-gradient(to bottom, #ff6b6b, #ff4444);
+    background: #f0f0f0;
 }
 
 .modal-close:active {
-    background: linear-gradient(to bottom, #cc0000, #ff4444);
-    box-shadow: inset 0 1px 2px rgba(0,0,0,0.3);
+    background: #e2e2e2;
 }
 
-/* Modal body */
 .modal-body {
-    padding: 20px;
+    padding: var(--space-4);
     overflow-y: auto;
-    flex: 1;
-    min-height: 0;
+}
+
+.modal-footer {
+    border-top: 1px solid var(--line);
+    padding: 8px 10px;
+    display: flex;
+    justify-content: flex-end;
+    background: #ffffff;
 }
 
 .modal-body h2 {
     margin-top: 0;
+    margin-bottom: var(--space-2);
     font-size: 20px;
     padding: 6px 10px;
     background: linear-gradient(to bottom, #e8e8e8, #d0d0d0);
-    border: 1px solid #999;
-    box-shadow: inset 0 1px 0 #fff;
+    border: 1px solid #999999;
+    box-shadow: inset 0 1px 0 #ffffff;
 }
 
 .modal-body img {
     width: 100%;
     height: auto;
-    margin: 15px 0;
-    border: 1px solid #000;
-    box-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    margin: var(--space-3) 0;
+    border: 1px solid var(--line);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-.modal-body p {
-    line-height: 1.5;
-    margin-bottom: 12px;
-}
-
-.modal-body ul {
-    margin: 10px 0;
-    padding-left: 25px;
-}
-
-.modal-body li {
-    margin-bottom: 6px;
-    line-height: 1.4;
-}
-
+.modal-body ul,
 .modal-body ol {
-    margin: 10px 0;
-    padding-left: 25px;
+    margin: var(--space-2) 0;
+    padding-left: 24px;
 }
 
-.modal-body ol li {
-    margin-bottom: 6px;
+.modal-body li + li {
+    margin-top: 6px;
 }
 
 .modal-body code {
     background: #f0f0f0;
+    border: 1px solid #c5c5c5;
     padding: 2px 6px;
-    border: 1px solid #ccc;
     border-radius: 2px;
-    font-family: "Courier New", monospace;
+    font-family: "Courier New", Courier, monospace;
     font-size: 14px;
 }
 
-/* Animations */
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-@keyframes slideDown {
-    from { 
-        transform: translateY(-30px);
-        opacity: 0;
-    }
-    to { 
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
-/* Scrollbar para el modal */
-.modal-body::-webkit-scrollbar {
-    width: 16px;
-}
-
-.modal-body::-webkit-scrollbar-track {
-    background: #ddd;
-    border: 1px solid #999;
-}
-
-.modal-body::-webkit-scrollbar-thumb {
-    background: linear-gradient(to bottom, #f0f0f0, #c0c0c0);
-    border: 1px solid #000;
-    box-shadow: inset 1px 1px 0 rgba(255,255,255,0.7);
-}
-
-.modal-body::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(to bottom, #f8f8f8, #d0d0d0);
-}
-
-/* Small screens: reduce margins, keep structure */
-@media (max-width: 600px) {
+@media (max-width: 620px) {
     body {
         padding: 10px;
     }
+
     header,
     main {
         padding: 15px;
     }
+
     h1 {
         font-size: 26px;
     }
-    
+
+    h2 {
+        font-size: 20px;
+    }
+
+    .project {
+        padding: 12px;
+    }
+
     .modal {
         padding: 10px;
     }
-    
-    .modal-content {
-        width: 95%;
-        max-height: 95vh;
-    }
-    
+
     .modal-body {
-        padding: 15px;
-    }
-    
-    .modal-body h2 {
-        font-size: 18px;
+        padding: 14px;
     }
 }

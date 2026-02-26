@@ -108,29 +108,35 @@ const projectsData = {
         `
     },
     'snake': {
-        title: 'Snake en C con Raylib',
+        title: 'Snake AI con Reinforcement Learning',
         image: 'images/snake.gif',
         description: `
-            <p>Juego clásico Snake escrito en C usando las librerías Raylib y Raymath.</p>
+            <p>Snake AI combina un motor nativo en C con renderizado Raylib y un agente DQN en Python usando PyTorch.</p>
             
-            <p>El jugador controla una serpiente que crece al comer manzanas. El juego termina cuando la serpiente colisiona con las paredes o con su propio cuerpo.</p>
+            <p>El flujo del proyecto permite jugar manualmente, exponer el motor como librería compartida y entrenar a la IA para que aprenda la política de movimiento de forma autónoma.</p>
             
-            <p><strong>Controles:</strong></p>
+            <p><strong>Pipeline principal:</strong></p>
             <ul>
-                <li>⬆️ Flecha arriba: mover arriba</li>
-                <li>⬇️ Flecha abajo: mover abajo</li>
-                <li>⬅️ Flecha izquierda: mover izquierda</li>
-                <li>➡️ Flecha derecha: mover derecha</li>
+                <li>Construir juego en C: <code>./build.sh game</code> y ejecutar <code>./build/snake</code></li>
+                <li>Construir motor para Python: <code>./build.sh engine</code> (genera <code>build/libsnake.so</code>)</li>
+                <li>Entrenar agente DQN: <code>python3 src/python_ai/training.py</code></li>
+                <li>Ver al agente jugar: <code>python3 src/python_ai/play.py</code></li>
             </ul>
             
-            <p><strong>Instalación y uso:</strong></p>
+            <p><strong>Requisitos:</strong></p>
             <ol>
-                <li>Instala la librería Raylib siguiendo la documentación oficial</li>
-                <li>Clona el repositorio</li>
-                <li>Compila y ejecuta en macOS: <code>gcc snake.c $(pkg-config --libs --cflags raylib) -o snake && ./snake</code></li>
+                <li>Raylib instalado con soporte de <code>pkg-config</code></li>
+                <li>Python 3.14+</li>
+                <li>Dependencias Python: <code>torch</code>, <code>numpy</code>, <code>matplotlib</code></li>
             </ol>
             
-            <p>El proyecto cubre aspectos fundamentales del desarrollo de juegos: game loop, detección de colisiones, manejo de estado y renderizado gráfico eficiente. La librería Raymath está incluida en el repositorio.</p>
+            <p><strong>Testing:</strong></p>
+            <ol>
+                <li>Tests del motor en C: <code>./build.sh test</code></li>
+                <li>Prueba del entorno Python: <code>python3 src/python_ai/test_env.py</code></li>
+            </ol>
+            
+            <p>El modelo entrenado se guarda en <code>model/snake_dqn.pt</code>. El repositorio muestra una integración completa entre desarrollo de juego en C y entrenamiento de RL en Python.</p>
         `
     }
 };
@@ -142,19 +148,23 @@ const modalTitle = document.getElementById('modal-project-title');
 const modalImage = document.getElementById('modal-project-image');
 const modalDescription = document.getElementById('modal-project-description');
 
-// Añadir event listeners a todos los títulos de proyectos
-document.querySelectorAll('.project-title').forEach(title => {
-    title.addEventListener('click', function() {
+function openProjectModal(projectId) {
+    const project = projectsData[projectId];
+
+    if (project) {
+        modalTitle.textContent = project.title;
+        modalImage.src = project.image;
+        modalImage.alt = project.title;
+        modalDescription.innerHTML = project.description;
+        modal.classList.add('show');
+    }
+}
+
+// Añadir event listeners a los botones de detalle
+document.querySelectorAll('.project-open').forEach(button => {
+    button.addEventListener('click', function() {
         const projectId = this.getAttribute('data-project');
-        const project = projectsData[projectId];
-        
-        if (project) {
-            modalTitle.textContent = project.title;
-            modalImage.src = project.image;
-            modalImage.alt = project.title;
-            modalDescription.innerHTML = project.description;
-            modal.classList.add('show');
-        }
+        openProjectModal(projectId);
     });
 });
 
