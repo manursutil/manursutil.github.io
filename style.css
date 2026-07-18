@@ -231,6 +231,11 @@ a {
   transition: opacity 180ms ease, transform 180ms ease;
 }
 
+.sticker > span {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
 .collage-card:hover,
 .collage-card:focus-visible,
 .sticker:hover,
@@ -243,9 +248,7 @@ a {
 }
 
 .collage-card:hover > span,
-.collage-card:focus-visible > span,
-.sticker:hover > span,
-.sticker:focus-visible > span {
+.collage-card:focus-visible > span {
   opacity: 1;
   transform: translate(-50%, 0);
 }
@@ -686,6 +689,9 @@ a {
     bottom: 0.35rem;
     padding: 0.25rem 0.45rem;
     font-size: 0.48rem;
+  }
+
+  .collage-card > span {
     opacity: 1;
     transform: translate(-50%, 0);
   }

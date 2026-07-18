@@ -36,6 +36,15 @@ test("collage cards have subtle motion with a reduced-motion fallback", async ()
   assert.match(css, /@media\s*\(prefers-reduced-motion:\s*reduce\)/);
 });
 
+test("sticker labels are always visible", async () => {
+  const css = await readFile(new URL("style.css", root), "utf8");
+
+  assert.match(
+    css,
+    /\.sticker\s*>\s*span\s*\{[^}]*opacity:\s*1[^}]*transform:\s*translate\(-50%,\s*0\)/s,
+  );
+});
+
 test("every collage destination is a real page with a back button", async () => {
   for (const destination of destinations) {
     const page = new URL(destination, root);
