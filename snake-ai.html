@@ -17,15 +17,15 @@
         <div class="project-detail-copy">
           <p class="detail-kicker" data-i18n="kicker">Aprendizaje por refuerzo</p>
           <h1 class="detail-title">Snake AI</h1>
-          <p data-i18n="description">Un agente que aprende a jugar a Snake mediante una red DQN. Conecta un motor rápido escrito en C y renderizado con raylib con un agente en Python y PyTorch.</p>
+          <p data-i18n="description">Construí este agente después de preguntarme cómo se programaban los bots de los juegos. El proyecto une un motor de Snake en C con un agente DQN desarrollado en Python y PyTorch.</p>
           <ul class="tag-list" aria-label="Tecnologías" data-i18n-aria="technologies"><li>Python</li><li>C</li><li>PyTorch</li><li>raylib</li></ul>
           <a class="primary-link" href="https://github.com/manursutil/SnakeAI" target="_blank" rel="noreferrer" data-i18n="repository">Ver repositorio ↗</a>
         </div>
       </section>
       <section class="facts-grid" aria-label="Claves del proyecto" data-i18n-aria="projectFacts">
-        <article><span data-i18n="f1Label">01 · Motor</span><h2 data-i18n="f1Title">Juego nativo</h2><p data-i18n="f1Text">El motor en C permite ejecutar el entorno con rapidez y también ofrece una versión jugable.</p></article>
-        <article><span data-i18n="f2Label">02 · Agente</span><h2 data-i18n="f2Title">DQN en Python</h2><p data-i18n="f2Text">El agente entrena con PyTorch y guarda sus pesos para reproducir después las partidas.</p></article>
-        <article><span data-i18n="f3Label">03 · Integración</span><h2 data-i18n="f3Title">Dos mundos</h2><p data-i18n="f3Text">Una librería compartida conecta el motor nativo con el entorno de entrenamiento en Python.</p></article>
+        <article><span data-i18n="f1Label">01 · Origen</span><h2 data-i18n="f1Title">Un proyecto personal</h2><p data-i18n="f1Text">La idea surgió mientras jugaba y desarrollé el proyecto en solitario. Quería entender el ciclo completo: crear el entorno, representar cada estado, entrenar al agente y verlo jugar con el modelo aprendido.</p></article>
+        <article><span data-i18n="f2Label">02 · Diseño</span><h2 data-i18n="f2Title">Once señales, cuatro acciones</h2><p data-i18n="f2Text">El agente observa la dirección, la posición relativa de la comida y el peligro a ambos lados y al frente. Puede moverse en cuatro direcciones y recibe +1 al comer, -1 al chocar y 0 en el resto de pasos.</p></article>
+        <article><span data-i18n="f3Label">03 · Reto</span><h2 data-i18n="f3Title">Conectar C con PyTorch</h2><p data-i18n="f3Text">La parte más exigente fue exponer el motor de C como una librería compartida y controlarlo desde Python. El entrenamiento usa replay memory, una red objetivo y exploración epsilon-greedy. El proyecto está terminado.</p></article>
       </section>
     </main>
   </body>

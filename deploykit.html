@@ -15,17 +15,17 @@
       <section class="project-detail-hero">
         <div class="detail-media"><img src="assets/deploykit-placeholder.svg" alt="Ilustración temporal de DeployKit" data-i18n-alt="deployAlt" /></div>
         <div class="project-detail-copy">
-          <p class="detail-kicker" data-i18n="kicker">DevOps · Producto</p>
+          <p class="detail-kicker" data-i18n="kicker">DevOps · Automatización</p>
           <h1 class="detail-title">DeployKit</h1>
-          <p data-i18n="description">Herramienta CLI para desplegar frontend y backend de forma independiente por tenant sobre infraestructura AWS existente, con despliegues fijados a commits inmutables.</p>
+          <p data-i18n="description">Creé DeployKit a partir de una necesidad de trabajo y lo convertí en una herramienta modular. Gestiona despliegues independientes de frontend y backend por tenant sobre infraestructura AWS existente.</p>
           <ul class="tag-list" aria-label="Tecnologías" data-i18n-aria="technologies"><li>TypeScript</li><li>AWS</li><li>Docker</li><li>Node.js</li></ul>
           <a class="primary-link" href="https://github.com/manursutil/DeployKit" target="_blank" rel="noreferrer" data-i18n="repository">Ver repositorio ↗</a>
         </div>
       </section>
       <section class="facts-grid" aria-label="Claves del proyecto" data-i18n-aria="projectFacts">
-        <article><span data-i18n="f1Label">01 · Seguro</span><h2 data-i18n="f1Title">SSM, no SSH</h2><p data-i18n="f1Text">Los despliegues de backend se ejecutan mediante AWS SSM y las referencias se resuelven a un commit.</p></article>
-        <article><span data-i18n="f2Label">02 · Independiente</span><h2 data-i18n="f2Title">Por tenant</h2><p data-i18n="f2Text">Frontend y backend se despliegan, conservan y revierten de forma independiente para cada tenant.</p></article>
-        <article><span data-i18n="f3Label">03 · Reproducible</span><h2 data-i18n="f3Title">Simulación local</h2><p data-i18n="f3Text">Un entorno Docker permite recorrer el flujo completo sin depender de una cuenta de AWS.</p></article>
+        <article><span data-i18n="f1Label">01 · Origen</span><h2 data-i18n="f1Title">De necesidad interna a herramienta adaptable</h2><p data-i18n="f1Text">Desarrollé el proyecto en solitario a partir del despliegue de una aplicación para una empresa. Separé la lógica específica y amplié la configuración para aplicarla a otros proyectos multi-tenant.</p></article>
+        <article><span data-i18n="f2Label">02 · Garantías</span><h2 data-i18n="f2Title">Despliegues trazables</h2><p data-i18n="f2Text">Cada referencia se fija a un commit. El backend usa AWS SSM para evitar accesos SSH directos, guarda versiones inmutables, comprueba la salud del servicio y permite rollback. El historial y los bloqueos evitan despliegues simultáneos sobre la misma aplicación.</p></article>
+        <article><span data-i18n="f3Label">03 · Interfaces</span><h2 data-i18n="f3Title">CLI para personas y agentes</h2><p data-i18n="f3Text">Elegí una CLI para facilitar la automatización y el uso desde agentes de IA. El dashboard web usa la misma lógica de orquestación. Un entorno Docker permite probar el flujo sin acceso a AWS.</p></article>
       </section>
     </main>
   </body>

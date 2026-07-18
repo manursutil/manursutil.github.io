@@ -104,3 +104,26 @@ test("every page supports automatic and manual Spanish-English localization", as
     assert.match(html, /data-i18n=/);
   }
 });
+
+test("portfolio copy contains the supplied professional details and no draft text", async () => {
+  const pages = ["index.html", ...destinations];
+  const contents = await Promise.all(
+    pages.map((page) => readFile(new URL(page, root), "utf8")),
+  );
+  const script = await readFile(new URL("script.js", root), "utf8");
+  const portfolio = `${contents.join("\n")}\n${script}`;
+
+  assert.match(portfolio, /Tamia Innova Lab/);
+  assert.match(portfolio, /UOC/);
+  assert.match(portfolio, /CIFP Zonzamas/);
+  assert.match(portfolio, /mrodsut@gmail\.com/);
+  assert.match(portfolio, /inglés C1, alemán B1 y francés A2/);
+  assert.match(portfolio, /nivel intermedio en C y C\+\+/);
+  assert.match(portfolio, /proyecto en solitario/);
+  assert.match(portfolio, /SSM para evitar accesos SSH directos/);
+  assert.doesNotMatch(portfolio, /hola@ejemplo\.com/);
+  assert.doesNotMatch(
+    portfolio,
+    /Contenido provisional|selección provisional|Añade aquí|Completa este bloque|Este texto y el correo son temporales/,
+  );
+});

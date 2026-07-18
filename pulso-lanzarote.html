@@ -17,15 +17,15 @@
         <div class="project-detail-copy">
           <p class="detail-kicker" data-i18n="kicker">Datos · Producto local</p>
           <h1 class="detail-title">Pulso Lanzarote</h1>
-          <p data-i18n="description">Una guía viva de eventos que recopila agendas locales, elimina duplicados y selecciona planes relevantes para publicarlos en web, Telegram e iCalendar.</p>
+          <p data-i18n="description">Creé Pulso Lanzarote para reunir los eventos locales que estaban repartidos entre agendas institucionales y culturales. El objetivo es dar visibilidad a planes canarios y facilitar que cualquier persona encuentre qué hacer en la isla.</p>
           <ul class="tag-list" aria-label="Tecnologías" data-i18n-aria="technologies"><li>Python</li><li>FastAPI</li><li>SQLite</li><li>Ollama</li></ul>
           <a class="primary-link" href="https://github.com/manursutil/PulsoLanzarote" target="_blank" rel="noreferrer" data-i18n="repository">Ver repositorio ↗</a>
         </div>
       </section>
       <section class="facts-grid" aria-label="Claves del proyecto" data-i18n-aria="projectFacts">
-        <article><span data-i18n="f1Label">01 · Recopila</span><h2 data-i18n="f1Title">Fuentes locales</h2><p data-i18n="f1Text">Scrapers específicos reúnen programación institucional, cultural y de ocio de toda la isla.</p></article>
-        <article><span data-i18n="f2Label">02 · Entiende</span><h2 data-i18n="f2Title">Agenda canónica</h2><p data-i18n="f2Text">El pipeline normaliza, deduplica y enriquece eventos localmente con modelos de Ollama.</p></article>
-        <article><span data-i18n="f3Label">03 · Publica</span><h2 data-i18n="f3Title">Varios canales</h2><p data-i18n="f3Text">La misma selección alimenta la web pública, Telegram, iCalendar y el panel de operaciones.</p></article>
+        <article><span data-i18n="f1Label">01 · Fuentes</span><h2 data-i18n="f1Title">Nueve agendas locales</h2><p data-i18n="f1Text">Scrapers específicos recopilan eventos del Cabildo, ayuntamientos, espacios culturales y portales de ocio. Cada fuente produce el mismo modelo de evento para que el resto del sistema pueda procesarlo.</p></article>
+        <article><span data-i18n="f2Label">02 · Pipeline</span><h2 data-i18n="f2Title">Una agenda sin duplicados</h2><p data-i18n="f2Text">El sistema normaliza y cruza publicaciones para conservar un único evento. Gemma 3 clasifica el contenido y bge-m3 genera embeddings para búsqueda y ranking. Las reglas de fecha y diversidad completan la selección.</p></article>
+        <article><span data-i18n="f3Label">03 · Producto</span><h2 data-i18n="f3Title">Web, Telegram y calendario</h2><p data-i18n="f3Text">La misma agenda alimenta la web pública, un bot de Telegram, un calendario iCalendar y el panel de operaciones. Pulso está en desarrollo activo y utiliza modelos locales, sin APIs de pago.</p></article>
       </section>
     </main>
   </body>
