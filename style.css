@@ -190,8 +190,8 @@ a {
 .card-deploy {
   --rotation: 1.2deg;
   top: 37%;
-  right: 4.5%;
-  width: min(22vw, 22rem);
+  right: 2%;
+  width: min(30vw, 47vh, 29rem);
   aspect-ratio: 16 / 10;
 }
 
@@ -496,7 +496,7 @@ a {
     --translate-x: 0%;
     top: 31%;
     left: 4%;
-    width: 55%;
+    width: 44%;
   }
 
   .card-snake:hover,
@@ -505,8 +505,8 @@ a {
   }
 
   .card-portrait {
-    top: 31%;
-    right: 4%;
+    top: 50%;
+    right: 10%;
     left: auto;
     width: 31%;
     height: 21%;
@@ -514,10 +514,10 @@ a {
 
   .card-pulso {
     --translate-x: 0%;
-    top: 53%;
+    top: 50%;
     bottom: auto;
     left: 4%;
-    width: 55%;
+    width: 44%;
   }
 
   .card-pulso:hover,
@@ -526,9 +526,9 @@ a {
   }
 
   .card-deploy {
-    top: 55%;
+    top: 31%;
     right: 4%;
-    width: 34%;
+    width: 44%;
   }
 
   .sticker {

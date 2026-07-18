@@ -65,3 +65,15 @@ test("the implementation remains dependency-free and accessible", async () => {
   assert.match(css, /prefers-reduced-motion/);
   assert.match(js, /pointermove/);
 });
+
+test("all three project images share the same desktop sizing rule", async () => {
+  const css = await readFile(new URL("style.css", root), "utf8");
+  const projectSelectors = ["card-snake", "card-deploy", "card-pulso"];
+
+  for (const selector of projectSelectors) {
+    assert.match(
+      css,
+      new RegExp(`\\.${selector}\\s*\\{[^}]*width:\\s*min\\(30vw,\\s*47vh,\\s*29rem\\)`, "s"),
+    );
+  }
+});
