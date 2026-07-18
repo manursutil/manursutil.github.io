@@ -5,6 +5,9 @@ const translations = {
       language: "Idioma",
       spanish: "Español",
       english: "Inglés",
+      themeLabel: "Modo oscuro",
+      themeDark: "Activar modo oscuro",
+      themeLight: "Activar modo claro",
       technologies: "Tecnologías",
       projectFacts: "Claves del proyecto",
       repository: "Ver repositorio ↗",
@@ -107,6 +110,9 @@ const translations = {
       language: "Language",
       spanish: "Spanish",
       english: "English",
+      themeLabel: "Dark mode",
+      themeDark: "Switch to dark mode",
+      themeLight: "Switch to light mode",
       technologies: "Technologies",
       projectFacts: "Project highlights",
       repository: "View repository ↗",
@@ -206,11 +212,14 @@ const translations = {
 };
 
 const page = document.body.dataset.page;
-const storageKey = "portfolio-language";
+const languageStorageKey = "portfolio-language";
+const themeStorageKey = "portfolio-theme";
+const systemTheme = window.matchMedia("(prefers-color-scheme: dark)");
+let themeToggleButton;
 
 function savedLanguage() {
   try {
-    return localStorage.getItem(storageKey);
+    return localStorage.getItem(languageStorageKey);
   } catch {
     return null;
   }
@@ -257,14 +266,59 @@ function applyLanguage(language, remember = false) {
   switcher?.setAttribute("aria-label", copy.language);
   switcher?.querySelector('[data-language="es"]')?.setAttribute("title", copy.spanish);
   switcher?.querySelector('[data-language="en"]')?.setAttribute("title", copy.english);
+  updateThemeToggle(copy);
 
   if (remember) {
     try {
-      localStorage.setItem(storageKey, selected);
+      localStorage.setItem(languageStorageKey, selected);
     } catch {
       // The selection still applies for this page when storage is unavailable.
     }
   }
+}
+
+function activeTheme() {
+  const override = document.documentElement.dataset.theme;
+  return override === "dark" || override === "light"
+    ? override
+    : systemTheme.matches ? "dark" : "light";
+}
+
+function updateThemeToggle(copy = copyFor(document.documentElement.lang === "en" ? "en" : "es")) {
+  if (!themeToggleButton) return;
+
+  const dark = activeTheme() === "dark";
+  const label = dark ? copy.themeLight : copy.themeDark;
+  themeToggleButton.textContent = dark ? "☀" : "☾";
+  themeToggleButton.setAttribute("aria-label", copy.themeLabel);
+  themeToggleButton.setAttribute("aria-pressed", String(dark));
+  themeToggleButton.setAttribute("title", label);
+}
+
+function toggleTheme() {
+  try {
+    if (document.documentElement.dataset.theme) {
+      delete document.documentElement.dataset.theme;
+      localStorage.removeItem(themeStorageKey);
+    } else {
+      const selected = activeTheme() === "dark" ? "light" : "dark";
+      document.documentElement.dataset.theme = selected;
+      localStorage.setItem(themeStorageKey, selected);
+    }
+  } catch {
+    // The selection still applies for this page when storage is unavailable.
+  }
+
+  updateThemeToggle();
+}
+
+function createThemeToggle() {
+  themeToggleButton = document.createElement("button");
+  themeToggleButton.type = "button";
+  themeToggleButton.className = "theme-toggle";
+  themeToggleButton.addEventListener("click", toggleTheme);
+  document.body.append(themeToggleButton);
+  updateThemeToggle();
 }
 
 function createLanguageSwitcher() {
@@ -287,8 +341,13 @@ function createLanguageSwitcher() {
 
 const storedLanguage = savedLanguage();
 const initialLanguage = storedLanguage === "es" || storedLanguage === "en" ? storedLanguage : deviceLanguage();
+createThemeToggle();
 createLanguageSwitcher();
 applyLanguage(initialLanguage);
+
+systemTheme.addEventListener("change", () => {
+  if (!document.documentElement.dataset.theme) updateThemeToggle();
+});
 
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 

@@ -1,13 +1,34 @@
 :root {
-  --paper: #f3f0e8;
-  --ink: #171714;
-  --muted: #69685f;
-  --blue: #4b64f2;
-  --coral: #ff684e;
-  --lime: #cbf05a;
-  --line: rgba(23, 23, 20, 0.18);
+  color-scheme: light;
+  --paper: light-dark(#f3f0e8, #11120f);
+  --ink: light-dark(#171714, #f2efe6);
+  --muted: light-dark(#69685f, #aaa99f);
+  --blue: light-dark(#4b64f2, #8292ff);
+  --coral: light-dark(#ff684e, #ff806a);
+  --lime: light-dark(#cbf05a, #d5f477);
+  --line: light-dark(rgba(23, 23, 20, 0.18), rgba(242, 239, 230, 0.18));
+  --control-bg: light-dark(rgba(243, 240, 232, 0.9), rgba(17, 18, 15, 0.88));
+  --hero-glow: light-dark(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.055));
+  --hero-end: light-dark(#f8f6f1, #191a16);
+  --on-ink: light-dark(#fff, #11120f);
+  --on-accent: #171714;
+  --shadow: light-dark(rgba(30, 28, 22, 0.16), rgba(0, 0, 0, 0.36));
   --serif: Iowan Old Style, Baskerville, "Times New Roman", serif;
   --sans: Inter, Avenir, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    color-scheme: dark;
+  }
 }
 
 * {
@@ -46,8 +67,32 @@ a {
   padding: 0.2rem;
   border: 1px solid var(--ink);
   border-radius: 999px;
-  background: rgba(243, 240, 232, 0.9);
+  background: var(--control-bg);
   backdrop-filter: blur(8px);
+}
+
+.theme-toggle {
+  position: fixed;
+  z-index: 40;
+  top: 1.35rem;
+  right: 7.15rem;
+  display: grid;
+  width: 2.15rem;
+  height: 2.15rem;
+  padding: 0;
+  border: 1px solid var(--ink);
+  border-radius: 50%;
+  place-items: center;
+  color: var(--ink);
+  background: var(--control-bg);
+  font: 700 1rem/1 var(--sans);
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+}
+
+.theme-toggle:hover {
+  color: var(--paper);
+  background: var(--ink);
 }
 
 .language-switcher button {
@@ -67,7 +112,8 @@ a {
   background: var(--ink);
 }
 
-.language-switcher button:focus-visible {
+.language-switcher button:focus-visible,
+.theme-toggle:focus-visible {
   outline: 2px solid var(--blue);
   outline-offset: 2px;
 }
@@ -90,8 +136,8 @@ a {
   position: relative;
   overflow: hidden;
   background:
-    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.9) 0 13%, transparent 38%),
-    linear-gradient(var(--paper), #f8f6f1);
+    radial-gradient(circle at 50% 50%, var(--hero-glow) 0 13%, transparent 38%),
+    linear-gradient(var(--paper), var(--hero-end));
 }
 
 .hero-copy {
@@ -162,7 +208,7 @@ a {
   height: 100%;
   border-radius: clamp(0.65rem, 1.1vw, 1.15rem);
   object-fit: cover;
-  box-shadow: 0 15px 27px rgba(30, 28, 22, 0.16);
+  box-shadow: 0 15px 27px var(--shadow);
 }
 
 .collage-card > span,
@@ -173,7 +219,7 @@ a {
   left: 50%;
   width: max-content;
   padding: 0.34rem 0.62rem;
-  color: white;
+  color: var(--on-ink);
   background: var(--ink);
   border-radius: 999px;
   font-size: clamp(0.52rem, 0.58vw, 0.64rem);
@@ -256,7 +302,7 @@ a {
 }
 
 .sticker img {
-  filter: drop-shadow(0 7px 8px rgba(30, 28, 22, 0.14));
+  filter: drop-shadow(0 7px 8px var(--shadow));
 }
 
 .sticker-experience {
@@ -297,7 +343,7 @@ a {
   padding: 0.55rem 0.85rem 0.55rem 2rem;
   border: 1px solid var(--ink);
   border-radius: 999px;
-  background: rgba(243, 240, 232, 0.92);
+  background: var(--control-bg);
   font-size: 0.68rem;
   font-weight: 800;
   letter-spacing: 0.1em;
@@ -394,7 +440,7 @@ a {
   height: 100%;
   border-radius: 1.4rem;
   object-fit: contain;
-  box-shadow: 0 20px 40px rgba(30, 28, 22, 0.14);
+  box-shadow: 0 20px 40px var(--shadow);
 }
 
 .project-detail-copy .detail-title {
@@ -428,7 +474,7 @@ a {
   display: inline-block;
   margin-top: 1.7rem;
   padding: 0.75rem 1.05rem;
-  color: white;
+  color: var(--on-ink);
   background: var(--ink);
   border-radius: 999px;
   font-size: 0.72rem;
@@ -440,7 +486,7 @@ a {
 
 .primary-link:hover,
 .primary-link:focus-visible {
-  color: var(--ink);
+  color: var(--on-accent);
   background: var(--lime);
 }
 
@@ -543,10 +589,16 @@ a {
 
 .contact-panel a:hover,
 .contact-panel a:focus-visible {
+  color: var(--on-accent);
   background: var(--lime);
 }
 
 @media (max-width: 760px) {
+  .theme-toggle {
+    top: 0.65rem;
+    right: 6.4rem;
+  }
+
   .language-switcher {
     top: 0.65rem;
     right: 0.75rem;

@@ -1,6 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { access, readFile } from "node:fs/promises";
+import { runInNewContext } from "node:vm";
 
 const root = new URL("../", import.meta.url);
 const destinations = [
@@ -134,6 +135,98 @@ test("every page supports automatic and manual Spanish-English localization", as
     assert.match(html, /<script src=["']script\.js["'] defer><\/script>/);
     assert.match(html, /data-i18n=/);
   }
+});
+
+test("every page follows the system color scheme and offers a persistent theme toggle", async () => {
+  const pages = ["index.html", ...destinations];
+  const [css, script] = await Promise.all([
+    readFile(new URL("style.css", root), "utf8"),
+    readFile(new URL("script.js", root), "utf8"),
+  ]);
+
+  assert.match(css, /prefers-color-scheme:\s*dark/);
+  assert.match(css, /:root\[data-theme=["']dark["']\]/);
+  assert.match(css, /:root\[data-theme=["']light["']\]/);
+  assert.match(script, /portfolio-theme/);
+  assert.match(script, /className\s*=\s*["']theme-toggle["']/);
+  assert.match(script, /matchMedia\(["']\(prefers-color-scheme: dark\)["']\)/);
+  assert.match(script, /localStorage\.removeItem\(themeStorageKey\)/);
+  assert.match(script, /delete document\.documentElement\.dataset\.theme/);
+
+  for (const page of pages) {
+    const html = await readFile(new URL(page, root), "utf8");
+    assert.match(html, /<meta name=["']color-scheme["'] content=["']light dark["']/);
+    assert.match(html, /localStorage\.getItem\(["']portfolio-theme["']\)/);
+  }
+});
+
+test("the theme toggle overrides the system once and returns to automatic mode", async () => {
+  const script = await readFile(new URL("script.js", root), "utf8");
+  const values = new Map();
+  const children = [];
+
+  function element() {
+    return {
+      children: [],
+      dataset: {},
+      listeners: {},
+      append(child) { this.children.push(child); },
+      addEventListener(type, listener) { this.listeners[type] = listener; },
+      setAttribute(name, value) { this[name] = value; },
+      querySelector(selector) {
+        const language = selector.match(/data-language="(es|en)"/)?.[1];
+        return this.children.find((child) => child.dataset.language === language) ?? null;
+      },
+    };
+  }
+
+  const documentElement = { dataset: {}, lang: "es" };
+  const document = {
+    body: { dataset: { page: "index" }, append(child) { children.push(child); } },
+    documentElement,
+    createElement: element,
+    querySelector(selector) {
+      if (selector === ".language-switcher") {
+        return children.find((child) => child.className === "language-switcher") ?? null;
+      }
+      return null;
+    },
+    querySelectorAll(selector) {
+      if (selector === "[data-language]") {
+        return children.flatMap((child) => child.children ?? []).filter((child) => child.dataset.language);
+      }
+      return [];
+    },
+  };
+
+  runInNewContext(script, {
+    document,
+    localStorage: {
+      getItem(key) { return values.get(key) ?? null; },
+      setItem(key, value) { values.set(key, value); },
+      removeItem(key) { values.delete(key); },
+    },
+    navigator: { language: "es" },
+    window: {
+      matchMedia(query) {
+        return { matches: query.includes("color-scheme"), addEventListener() {} };
+      },
+    },
+  });
+
+  const toggle = children.find((child) => child.className === "theme-toggle");
+  assert.equal(toggle["aria-label"], "Modo oscuro");
+  assert.equal(toggle["aria-pressed"], "true");
+
+  toggle.listeners.click();
+  assert.equal(documentElement.dataset.theme, "light");
+  assert.equal(values.get("portfolio-theme"), "light");
+  assert.equal(toggle["aria-pressed"], "false");
+
+  toggle.listeners.click();
+  assert.equal("theme" in documentElement.dataset, false);
+  assert.equal(values.has("portfolio-theme"), false);
+  assert.equal(toggle["aria-pressed"], "true");
 });
 
 test("portfolio copy contains the supplied professional details and no draft text", async () => {
