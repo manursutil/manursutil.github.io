@@ -87,6 +87,22 @@ test("all three project images share the same desktop sizing rule", async () => 
   }
 });
 
+test("project images remain fully visible on single-screen desktop layouts", async () => {
+  const css = await readFile(new URL("style.css", root), "utf8");
+  const projectPages = ["snake-ai.html", "deploykit.html", "pulso-lanzarote.html"];
+
+  assert.match(css, /\.detail-media img\s*\{[^}]*object-fit:\s*contain/s);
+  assert.match(
+    css,
+    /@media\s*\(max-height:\s*800px\)\s*and\s*\(min-width:\s*761px\)[^{]*\{[\s\S]*?\.project-page\s*\{[^}]*height:\s*100svh[^}]*overflow:\s*hidden/s,
+  );
+
+  for (const page of projectPages) {
+    const html = await readFile(new URL(page, root), "utf8");
+    assert.match(html, /<body[^>]+class=["'][^"']*project-page/);
+  }
+});
+
 test("every page supports automatic and manual Spanish-English localization", async () => {
   const pages = ["index.html", ...destinations];
   const script = await readFile(new URL("script.js", root), "utf8");
