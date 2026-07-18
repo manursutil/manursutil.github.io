@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="DeployKit, herramienta de despliegue multi-tenant de Manuel Rodríguez Sutil." />
+    <title>DeployKit — Manuel Rodríguez Sutil</title>
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="detail-page">
+    <a class="back-link" href="index.html">Volver</a>
+    <main class="detail-main">
+      <section class="project-detail-hero">
+        <div class="detail-media"><img src="assets/deploykit-placeholder.svg" alt="Ilustración temporal de DeployKit" /></div>
+        <div class="project-detail-copy">
+          <p class="detail-kicker">DevOps · Producto</p>
+          <h1 class="detail-title">DeployKit</h1>
+          <p>Herramienta CLI para desplegar frontend y backend de forma independiente por tenant sobre infraestructura AWS existente, con despliegues fijados a commits inmutables.</p>
+          <ul class="tag-list" aria-label="Tecnologías"><li>TypeScript</li><li>AWS</li><li>Docker</li><li>Node.js</li></ul>
+          <a class="primary-link" href="https://github.com/manursutil/DeployKit" target="_blank" rel="noreferrer">Ver repositorio ↗</a>
+        </div>
+      </section>
+      <section class="facts-grid" aria-label="Claves del proyecto">
+        <article><span>01 · Seguro</span><h2>SSM, no SSH</h2><p>Los despliegues de backend se ejecutan mediante AWS SSM y las referencias se resuelven a un commit.</p></article>
+        <article><span>02 · Independiente</span><h2>Por tenant</h2><p>Frontend y backend se despliegan, conservan y revierten de forma independiente para cada tenant.</p></article>
+        <article><span>03 · Reproducible</span><h2>Simulación local</h2><p>Un entorno Docker permite recorrer el flujo completo sin depender de una cuenta de AWS.</p></article>
+      </section>
+    </main>
+  </body>
+</html>

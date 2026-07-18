@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Snake AI, proyecto de aprendizaje por refuerzo de Manuel Rodríguez Sutil." />
+    <title>Snake AI — Manuel Rodríguez Sutil</title>
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="detail-page">
+    <a class="back-link" href="index.html">Volver</a>
+    <main class="detail-main">
+      <section class="project-detail-hero">
+        <div class="detail-media"><img src="assets/snake-placeholder.svg" alt="Ilustración temporal de Snake AI" /></div>
+        <div class="project-detail-copy">
+          <p class="detail-kicker">Aprendizaje por refuerzo</p>
+          <h1 class="detail-title">Snake AI</h1>
+          <p>Un agente que aprende a jugar a Snake mediante una red DQN. Conecta un motor rápido escrito en C y renderizado con raylib con un agente en Python y PyTorch.</p>
+          <ul class="tag-list" aria-label="Tecnologías"><li>Python</li><li>C</li><li>PyTorch</li><li>raylib</li></ul>
+          <a class="primary-link" href="https://github.com/manursutil/SnakeAI" target="_blank" rel="noreferrer">Ver repositorio ↗</a>
+        </div>
+      </section>
+      <section class="facts-grid" aria-label="Claves del proyecto">
+        <article><span>01 · Motor</span><h2>Juego nativo</h2><p>El motor en C permite ejecutar el entorno con rapidez y también ofrece una versión jugable.</p></article>
+        <article><span>02 · Agente</span><h2>DQN en Python</h2><p>El agente entrena con PyTorch y guarda sus pesos para reproducir después las partidas.</p></article>
+        <article><span>03 · Integración</span><h2>Dos mundos</h2><p>Una librería compartida conecta el motor nativo con el entorno de entrenamiento en Python.</p></article>
+      </section>
+    </main>
+  </body>
+</html>
