@@ -75,7 +75,8 @@ a {
   position: fixed;
   z-index: 40;
   top: 1.35rem;
-  right: 7.15rem;
+  left: 1.5rem;
+  right: auto;
   display: grid;
   width: 2.15rem;
   height: 2.15rem;
@@ -336,6 +337,11 @@ a {
 
 .detail-page {
   min-height: 100vh;
+}
+
+.detail-page .theme-toggle {
+  top: 1.5rem;
+  left: 7.5rem;
 }
 
 .back-link {
@@ -599,7 +605,8 @@ a {
 @media (max-width: 760px) {
   .theme-toggle {
     top: 0.65rem;
-    right: 6.4rem;
+    left: 0.75rem;
+    right: auto;
   }
 
   .language-switcher {
@@ -699,6 +706,11 @@ a {
   .back-link {
     top: 1rem;
     left: 1rem;
+  }
+
+  .detail-page .theme-toggle {
+    top: 1rem;
+    left: 7rem;
   }
 
   .detail-main {

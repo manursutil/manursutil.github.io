@@ -156,6 +156,8 @@ test("every page follows the system color scheme and offers a persistent theme t
   assert.match(css, /prefers-color-scheme:\s*dark/);
   assert.match(css, /:root\[data-theme=["']dark["']\]/);
   assert.match(css, /:root\[data-theme=["']light["']\]/);
+  assert.match(css, /\.theme-toggle\s*\{[^}]*left:\s*1\.5rem[^}]*right:\s*auto/s);
+  assert.match(css, /\.detail-page \.theme-toggle\s*\{[^}]*left:\s*7\.5rem/s);
   assert.match(script, /portfolio-theme/);
   assert.match(script, /className\s*=\s*["']theme-toggle["']/);
   assert.match(script, /matchMedia\(["']\(prefers-color-scheme: dark\)["']\)/);
