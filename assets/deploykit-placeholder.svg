@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 625" role="img" aria-labelledby="title desc">
+  <title id="title">DeployKit</title>
+  <desc id="desc">Ilustración temporal de un flujo de despliegue entre terminal, nube y servidores.</desc>
+  <defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ff735b"/><stop offset="1" stop-color="#f5bd43"/></linearGradient></defs>
+  <rect width="1000" height="625" fill="url(#bg)"/>
+  <rect x="72" y="110" width="420" height="310" rx="24" fill="#171714"/>
+  <circle cx="110" cy="146" r="8" fill="#ff684e"/><circle cx="136" cy="146" r="8" fill="#f5bd43"/><circle cx="162" cy="146" r="8" fill="#cbf05a"/>
+  <path d="M120 220l52 42-52 42M201 304h90" fill="none" stroke="#cbf05a" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M493 266h109" fill="none" stroke="#171714" stroke-width="16" stroke-linecap="round"/><path d="M571 230l43 36-43 36" fill="none" stroke="#171714" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M682 197c19-54 94-59 119-15 50-12 89 20 87 64-1 38-31 63-75 63H681c-40 0-70-23-70-56 0-30 25-53 71-56z" fill="#f3f0e8" stroke="#171714" stroke-width="10"/>
+  <rect x="653" y="356" width="204" height="44" rx="10" fill="#171714"/><rect x="653" y="420" width="204" height="44" rx="10" fill="#171714"/><circle cx="819" cy="378" r="7" fill="#cbf05a"/><circle cx="819" cy="442" r="7" fill="#cbf05a"/>
+  <text x="56" y="548" fill="#171714" font-family="Georgia, serif" font-size="92">DeployKit</text>
+  <text x="62" y="585" fill="#171714" font-family="Arial, sans-serif" font-size="20" font-weight="700" letter-spacing="4">SHIP WITH CONFIDENCE</text>
+</svg>

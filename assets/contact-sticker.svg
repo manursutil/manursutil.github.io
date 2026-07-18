@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" role="img" aria-labelledby="title">
+  <title id="title">Contacto</title>
+  <path d="M37 63h226v164H37z" fill="#4b64f2" stroke="#171714" stroke-width="9" stroke-linejoin="round"/>
+  <path d="M43 70l107 91L257 70" fill="#f3f0e8" stroke="#171714" stroke-width="9" stroke-linejoin="round"/>
+  <path d="M42 220l79-73M258 220l-79-73" stroke="#171714" stroke-width="9"/>
+  <path d="M202 31l12 27 29 3-22 19 7 29-26-15-25 15 6-29-21-19 29-3z" fill="#ff684e" stroke="#171714" stroke-width="7" stroke-linejoin="round"/>
+</svg>

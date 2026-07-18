@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" role="img" aria-labelledby="title">
+  <title id="title">Experiencia</title>
+  <path d="M46 49h208v202H46z" fill="#f3f0e8" stroke="#171714" stroke-width="9"/>
+  <path d="M42 54l9-14 11 9 12-11 12 10 12-10 12 10 12-10 12 10 12-10 12 10 12-10 12 10 12-10 12 10 12-10 12 10 10-8 8 14" fill="#f3f0e8" stroke="#171714" stroke-width="6" stroke-linejoin="round"/>
+  <path d="M85 103h130M85 137h130M85 171h90" stroke="#171714" stroke-width="12" stroke-linecap="round"/>
+  <circle cx="204" cy="206" r="36" fill="#ff684e" stroke="#171714" stroke-width="7"/>
+  <path d="M187 206l12 12 23-29" fill="none" stroke="#f3f0e8" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

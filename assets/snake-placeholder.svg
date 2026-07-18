@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 625" role="img" aria-labelledby="title desc">
+  <title id="title">Snake AI</title>
+  <desc id="desc">Ilustración abstracta temporal de una serpiente aprendiendo en una cuadrícula.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="1" x2="1" y2="0"><stop stop-color="#18182a"/><stop offset="1" stop-color="#4b64f2"/></linearGradient>
+    <pattern id="grid" width="62.5" height="62.5" patternUnits="userSpaceOnUse"><path d="M62.5 0H0v62.5" fill="none" stroke="#fff" stroke-opacity=".11" stroke-width="2"/></pattern>
+  </defs>
+  <rect width="1000" height="625" fill="url(#bg)"/>
+  <rect width="1000" height="625" fill="url(#grid)"/>
+  <path d="M155 414h190V292h126v-90h126v150h126v-88h127" fill="none" stroke="#cbf05a" stroke-width="64" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="850" cy="264" r="33" fill="#cbf05a"/>
+  <circle cx="861" cy="253" r="6" fill="#171714"/>
+  <rect x="796" y="436" width="60" height="60" rx="14" fill="#ff684e" transform="rotate(12 826 466)"/>
+  <text x="54" y="82" fill="#fff" font-family="Arial, sans-serif" font-size="28" font-weight="700" letter-spacing="5">REINFORCEMENT LEARNING</text>
+  <text x="50" y="575" fill="#fff" font-family="Georgia, serif" font-size="82">Snake AI</text>
+</svg>

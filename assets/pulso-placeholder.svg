@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 625" role="img" aria-labelledby="title desc">
+  <title id="title">Pulso Lanzarote</title>
+  <desc id="desc">Ilustración temporal de Lanzarote, eventos y actividad local.</desc>
+  <defs><linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#8ec9ff"/><stop offset="1" stop-color="#f6a86d"/></linearGradient></defs>
+  <rect width="1000" height="625" fill="url(#sky)"/>
+  <circle cx="785" cy="126" r="70" fill="#fff3a8" opacity=".88"/>
+  <path d="M0 422c110-73 220-54 319-134 70-56 140-42 201 10 83 72 140 64 223-7 75-64 159-24 257 68v266H0z" fill="#292924"/>
+  <path d="M0 496c170-75 260 39 421-22 147-56 256-31 374 20 67 29 129 26 205-15v146H0z" fill="#ff684e"/>
+  <path d="M156 0v625M385 0v625M614 0v625M843 0v625" stroke="#fff" stroke-opacity=".13" stroke-width="2"/>
+  <path d="M0 156h1000M0 312h1000M0 468h1000" stroke="#fff" stroke-opacity=".13" stroke-width="2"/>
+  <path d="M111 180h95l32-52 54 116 47-79 44 15h114l42-85 47 166 42-81h151" fill="none" stroke="#cbf05a" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="773" cy="180" r="17" fill="#cbf05a"/>
+  <text x="54" y="550" fill="#fff" font-family="Georgia, serif" font-size="84">Pulso Lanzarote</text>
+  <text x="60" y="590" fill="#fff" font-family="Arial, sans-serif" font-size="20" font-weight="700" letter-spacing="4">LA ISLA ESTÁ PASANDO</text>
+</svg>
