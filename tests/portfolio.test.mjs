@@ -92,6 +92,8 @@ test("project images remain fully visible on single-screen desktop layouts", asy
   const projectPages = ["snake-ai.html", "deploykit.html", "pulso-lanzarote.html"];
 
   assert.match(css, /\.detail-media img\s*\{[^}]*object-fit:\s*contain/s);
+  assert.match(css, /\.detail-media img\s*\{[^}]*width:\s*auto[^}]*box-shadow:/s);
+  assert.match(css, /\.detail-media\s*\{[^}]*justify-content:\s*center/s);
   assert.match(
     css,
     /@media\s*\(max-height:\s*800px\)\s*and\s*\(min-width:\s*761px\)[^{]*\{[\s\S]*?\.project-page\s*\{[^}]*height:\s*100svh[^}]*overflow:\s*hidden/s,
@@ -101,6 +103,19 @@ test("project images remain fully visible on single-screen desktop layouts", asy
     const html = await readFile(new URL(page, root), "utf8");
     assert.match(html, /<body[^>]+class=["'][^"']*project-page/);
   }
+});
+
+test("informational page headings reserve space below the back button", async () => {
+  const css = await readFile(new URL("style.css", root), "utf8");
+
+  assert.match(
+    css,
+    /\.detail-page:not\(\.project-page\) \.detail-main\s*\{[^}]*padding-top:\s*clamp\(5\.5rem,\s*10vh,\s*7rem\)/s,
+  );
+  assert.match(
+    css,
+    /@media\s*\(max-width:\s*760px\)[^{]*\{[\s\S]*?\.detail-main\s*\{[^}]*padding:\s*6\.75rem 0 3rem/s,
+  );
 });
 
 test("every page supports automatic and manual Spanish-English localization", async () => {
