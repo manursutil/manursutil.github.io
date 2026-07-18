@@ -18,12 +18,21 @@ test("the home page is a single-screen collage with no top navigation", async ()
 
   assert.match(html, /class=["'][^"']*home-page/);
   assert.doesNotMatch(html, /<nav\b/i);
+  assert.doesNotMatch(html, /brand-mark/);
   assert.doesNotMatch(html, /Portfolio\s*·?\s*2026/i);
   assert.match(html, /Manuel Rodríguez Sutil/);
 
   for (const destination of destinations) {
     assert.match(html, new RegExp(`href=["']${destination}["']`));
   }
+});
+
+test("collage cards have subtle motion with a reduced-motion fallback", async () => {
+  const css = await readFile(new URL("style.css", root), "utf8");
+
+  assert.match(css, /@keyframes\s+card-drift/);
+  assert.match(css, /animation:\s*card-drift/);
+  assert.match(css, /@media\s*\(prefers-reduced-motion:\s*reduce\)/);
 });
 
 test("every collage destination is a real page with a back button", async () => {
@@ -75,5 +84,23 @@ test("all three project images share the same desktop sizing rule", async () => 
       css,
       new RegExp(`\\.${selector}\\s*\\{[^}]*width:\\s*min\\(30vw,\\s*47vh,\\s*29rem\\)`, "s"),
     );
+  }
+});
+
+test("every page supports automatic and manual Spanish-English localization", async () => {
+  const pages = ["index.html", ...destinations];
+  const script = await readFile(new URL("script.js", root), "utf8");
+
+  assert.match(script, /navigator\.languages|navigator\.language/);
+  assert.match(script, /localStorage/);
+  assert.match(script, /language-switcher/);
+  assert.match(script, /\bes\s*:/);
+  assert.match(script, /\ben\s*:/);
+
+  for (const page of pages) {
+    const html = await readFile(new URL(page, root), "utf8");
+    assert.match(html, /<body[^>]+data-page=/);
+    assert.match(html, /<script src=["']script\.js["'] defer><\/script>/);
+    assert.match(html, /data-i18n=/);
   }
 });

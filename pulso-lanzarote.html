@@ -7,24 +7,25 @@
     <title>Pulso Lanzarote — Manuel Rodríguez Sutil</title>
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
   </head>
-  <body class="detail-page">
-    <a class="back-link" href="index.html">Volver</a>
+  <body class="detail-page" data-page="pulso">
+    <a class="back-link" href="index.html" data-i18n="back">Volver</a>
     <main class="detail-main">
       <section class="project-detail-hero">
-        <div class="detail-media"><img src="assets/pulso-placeholder.svg" alt="Ilustración temporal de Pulso Lanzarote" /></div>
+        <div class="detail-media"><img src="assets/pulso-placeholder.svg" alt="Ilustración temporal de Pulso Lanzarote" data-i18n-alt="pulsoAlt" /></div>
         <div class="project-detail-copy">
-          <p class="detail-kicker">Datos · Producto local</p>
+          <p class="detail-kicker" data-i18n="kicker">Datos · Producto local</p>
           <h1 class="detail-title">Pulso Lanzarote</h1>
-          <p>Una guía viva de eventos que recopila agendas locales, elimina duplicados y selecciona planes relevantes para publicarlos en web, Telegram e iCalendar.</p>
-          <ul class="tag-list" aria-label="Tecnologías"><li>Python</li><li>FastAPI</li><li>SQLite</li><li>Ollama</li></ul>
-          <a class="primary-link" href="https://github.com/manursutil/PulsoLanzarote" target="_blank" rel="noreferrer">Ver repositorio ↗</a>
+          <p data-i18n="description">Una guía viva de eventos que recopila agendas locales, elimina duplicados y selecciona planes relevantes para publicarlos en web, Telegram e iCalendar.</p>
+          <ul class="tag-list" aria-label="Tecnologías" data-i18n-aria="technologies"><li>Python</li><li>FastAPI</li><li>SQLite</li><li>Ollama</li></ul>
+          <a class="primary-link" href="https://github.com/manursutil/PulsoLanzarote" target="_blank" rel="noreferrer" data-i18n="repository">Ver repositorio ↗</a>
         </div>
       </section>
-      <section class="facts-grid" aria-label="Claves del proyecto">
-        <article><span>01 · Recopila</span><h2>Fuentes locales</h2><p>Scrapers específicos reúnen programación institucional, cultural y de ocio de toda la isla.</p></article>
-        <article><span>02 · Entiende</span><h2>Agenda canónica</h2><p>El pipeline normaliza, deduplica y enriquece eventos localmente con modelos de Ollama.</p></article>
-        <article><span>03 · Publica</span><h2>Varios canales</h2><p>La misma selección alimenta la web pública, Telegram, iCalendar y el panel de operaciones.</p></article>
+      <section class="facts-grid" aria-label="Claves del proyecto" data-i18n-aria="projectFacts">
+        <article><span data-i18n="f1Label">01 · Recopila</span><h2 data-i18n="f1Title">Fuentes locales</h2><p data-i18n="f1Text">Scrapers específicos reúnen programación institucional, cultural y de ocio de toda la isla.</p></article>
+        <article><span data-i18n="f2Label">02 · Entiende</span><h2 data-i18n="f2Title">Agenda canónica</h2><p data-i18n="f2Text">El pipeline normaliza, deduplica y enriquece eventos localmente con modelos de Ollama.</p></article>
+        <article><span data-i18n="f3Label">03 · Publica</span><h2 data-i18n="f3Title">Varios canales</h2><p data-i18n="f3Text">La misma selección alimenta la web pública, Telegram, iCalendar y el panel de operaciones.</p></article>
       </section>
     </main>
   </body>

@@ -7,14 +7,15 @@
     <title>Contacto — Manuel Rodríguez Sutil</title>
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
   </head>
-  <body class="detail-page">
-    <a class="back-link" href="index.html">Volver</a>
+  <body class="detail-page" data-page="contact">
+    <a class="back-link" href="index.html" data-i18n="back">Volver</a>
     <main class="detail-main">
-      <p class="detail-kicker">Contacto</p>
-      <h1 class="detail-title">¿Construimos algo interesante?</h1>
-      <p class="detail-intro">Este texto y el correo son temporales. Sustitúyelos cuando quieras por tu mensaje y datos definitivos.</p>
-      <section class="contact-panel" aria-label="Formas de contacto">
+      <p class="detail-kicker" data-i18n="kicker">Contacto</p>
+      <h1 class="detail-title" data-i18n="title">¿Construimos algo interesante?</h1>
+      <p class="detail-intro" data-i18n="intro">Este texto y el correo son temporales. Sustitúyelos cuando quieras por tu mensaje y datos definitivos.</p>
+      <section class="contact-panel" aria-label="Formas de contacto" data-i18n-aria="methodsLabel">
         <a href="mailto:hola@ejemplo.com"><span>hola@ejemplo.com</span><span aria-hidden="true">↗</span></a>
         <a href="https://github.com/manursutil" target="_blank" rel="noreferrer"><span>GitHub</span><span aria-hidden="true">↗</span></a>
       </section>

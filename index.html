@@ -9,50 +9,48 @@
     <link rel="stylesheet" href="style.css" />
     <script src="script.js" defer></script>
   </head>
-  <body class="home-page">
-    <div class="brand-mark" aria-hidden="true">MS<span>®</span></div>
-
+  <body class="home-page" data-page="index">
     <main class="home-main">
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-copy">
           <h1 id="hero-title">Manuel<br />Rodríguez Sutil</h1>
-          <p>Estudiante de Ciencia de Datos</p>
-          <span class="hero-hint">Explora las imágenes</span>
+          <p data-i18n="role">Estudiante de Ciencia de Datos</p>
+          <span class="hero-hint" data-i18n="hint">Explora las imágenes</span>
         </div>
 
-        <a class="collage-card card-portrait" href="sobre-mi.html" aria-label="Abrir Sobre mí">
-          <img src="assets/portrait-placeholder.svg" alt="Retrato temporal" />
-          <span>Sobre mí</span>
+        <a class="collage-card card-portrait" href="sobre-mi.html" aria-label="Abrir Sobre mí" data-i18n-aria="openAbout">
+          <img src="assets/portrait-placeholder.svg" alt="Retrato temporal" data-i18n-alt="portraitAlt" />
+          <span data-i18n="about">Sobre mí</span>
         </a>
 
-        <a class="collage-card card-snake" href="snake-ai.html" aria-label="Abrir el proyecto Snake AI">
-          <img src="assets/snake-placeholder.svg" alt="Ilustración temporal de Snake AI" />
+        <a class="collage-card card-snake" href="snake-ai.html" aria-label="Abrir el proyecto Snake AI" data-i18n-aria="openSnake">
+          <img src="assets/snake-placeholder.svg" alt="Ilustración temporal de Snake AI" data-i18n-alt="snakeAlt" />
           <span>Snake AI</span>
         </a>
 
-        <a class="collage-card card-deploy" href="deploykit.html" aria-label="Abrir el proyecto DeployKit">
-          <img src="assets/deploykit-placeholder.svg" alt="Ilustración temporal de DeployKit" />
+        <a class="collage-card card-deploy" href="deploykit.html" aria-label="Abrir el proyecto DeployKit" data-i18n-aria="openDeploy">
+          <img src="assets/deploykit-placeholder.svg" alt="Ilustración temporal de DeployKit" data-i18n-alt="deployAlt" />
           <span>DeployKit</span>
         </a>
 
-        <a class="collage-card card-pulso" href="pulso-lanzarote.html" aria-label="Abrir el proyecto Pulso Lanzarote">
-          <img src="assets/pulso-placeholder.svg" alt="Ilustración temporal de Pulso Lanzarote" />
+        <a class="collage-card card-pulso" href="pulso-lanzarote.html" aria-label="Abrir el proyecto Pulso Lanzarote" data-i18n-aria="openPulso">
+          <img src="assets/pulso-placeholder.svg" alt="Ilustración temporal de Pulso Lanzarote" data-i18n-alt="pulsoAlt" />
           <span>Pulso Lanzarote</span>
         </a>
 
-        <a class="sticker sticker-experience" href="experiencia.html" aria-label="Abrir Experiencia">
+        <a class="sticker sticker-experience" href="experiencia.html" aria-label="Abrir Experiencia" data-i18n-aria="openExperience">
           <img src="assets/experience-sticker.svg" alt="" />
-          <span>Experiencia</span>
+          <span data-i18n="experience">Experiencia</span>
         </a>
 
-        <a class="sticker sticker-skills" href="habilidades.html" aria-label="Abrir Habilidades">
+        <a class="sticker sticker-skills" href="habilidades.html" aria-label="Abrir Habilidades" data-i18n-aria="openSkills">
           <img src="assets/skills-sticker.svg" alt="" />
-          <span>Habilidades</span>
+          <span data-i18n="skills">Habilidades</span>
         </a>
 
-        <a class="sticker sticker-contact" href="contacto.html" aria-label="Abrir Contacto">
+        <a class="sticker sticker-contact" href="contacto.html" aria-label="Abrir Contacto" data-i18n-aria="openContact">
           <img src="assets/contact-sticker.svg" alt="" />
-          <span>Contacto</span>
+          <span data-i18n="contact">Contacto</span>
         </a>
       </section>
     </main>

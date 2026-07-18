@@ -7,24 +7,25 @@
     <title>Snake AI — Manuel Rodríguez Sutil</title>
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
   </head>
-  <body class="detail-page">
-    <a class="back-link" href="index.html">Volver</a>
+  <body class="detail-page" data-page="snake">
+    <a class="back-link" href="index.html" data-i18n="back">Volver</a>
     <main class="detail-main">
       <section class="project-detail-hero">
-        <div class="detail-media"><img src="assets/snake-placeholder.svg" alt="Ilustración temporal de Snake AI" /></div>
+        <div class="detail-media"><img src="assets/snake-placeholder.svg" alt="Ilustración temporal de Snake AI" data-i18n-alt="snakeAlt" /></div>
         <div class="project-detail-copy">
-          <p class="detail-kicker">Aprendizaje por refuerzo</p>
+          <p class="detail-kicker" data-i18n="kicker">Aprendizaje por refuerzo</p>
           <h1 class="detail-title">Snake AI</h1>
-          <p>Un agente que aprende a jugar a Snake mediante una red DQN. Conecta un motor rápido escrito en C y renderizado con raylib con un agente en Python y PyTorch.</p>
-          <ul class="tag-list" aria-label="Tecnologías"><li>Python</li><li>C</li><li>PyTorch</li><li>raylib</li></ul>
-          <a class="primary-link" href="https://github.com/manursutil/SnakeAI" target="_blank" rel="noreferrer">Ver repositorio ↗</a>
+          <p data-i18n="description">Un agente que aprende a jugar a Snake mediante una red DQN. Conecta un motor rápido escrito en C y renderizado con raylib con un agente en Python y PyTorch.</p>
+          <ul class="tag-list" aria-label="Tecnologías" data-i18n-aria="technologies"><li>Python</li><li>C</li><li>PyTorch</li><li>raylib</li></ul>
+          <a class="primary-link" href="https://github.com/manursutil/SnakeAI" target="_blank" rel="noreferrer" data-i18n="repository">Ver repositorio ↗</a>
         </div>
       </section>
-      <section class="facts-grid" aria-label="Claves del proyecto">
-        <article><span>01 · Motor</span><h2>Juego nativo</h2><p>El motor en C permite ejecutar el entorno con rapidez y también ofrece una versión jugable.</p></article>
-        <article><span>02 · Agente</span><h2>DQN en Python</h2><p>El agente entrena con PyTorch y guarda sus pesos para reproducir después las partidas.</p></article>
-        <article><span>03 · Integración</span><h2>Dos mundos</h2><p>Una librería compartida conecta el motor nativo con el entorno de entrenamiento en Python.</p></article>
+      <section class="facts-grid" aria-label="Claves del proyecto" data-i18n-aria="projectFacts">
+        <article><span data-i18n="f1Label">01 · Motor</span><h2 data-i18n="f1Title">Juego nativo</h2><p data-i18n="f1Text">El motor en C permite ejecutar el entorno con rapidez y también ofrece una versión jugable.</p></article>
+        <article><span data-i18n="f2Label">02 · Agente</span><h2 data-i18n="f2Title">DQN en Python</h2><p data-i18n="f2Text">El agente entrena con PyTorch y guarda sus pesos para reproducir después las partidas.</p></article>
+        <article><span data-i18n="f3Label">03 · Integración</span><h2 data-i18n="f3Title">Dos mundos</h2><p data-i18n="f3Text">Una librería compartida conecta el motor nativo con el entorno de entrenamiento en Python.</p></article>
       </section>
     </main>
   </body>
