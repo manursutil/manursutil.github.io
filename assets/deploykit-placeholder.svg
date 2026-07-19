@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 625" role="img" aria-labelledby="title desc">
   <title id="title">DeployKit</title>
-  <desc id="desc">Ilustración temporal de un flujo de despliegue entre terminal, nube y servidores.</desc>
+  <desc id="desc">Ilustración de un flujo de despliegue entre terminal, nube y servidores.</desc>
   <defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ff735b"/><stop offset="1" stop-color="#f5bd43"/></linearGradient></defs>
   <rect width="1000" height="625" fill="url(#bg)"/>
   <rect x="72" y="110" width="420" height="310" rx="24" fill="#171714"/>

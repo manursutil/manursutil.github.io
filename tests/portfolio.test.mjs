@@ -36,12 +36,18 @@ test("collage cards have subtle motion with a reduced-motion fallback", async ()
   assert.match(css, /@media\s*\(prefers-reduced-motion:\s*reduce\)/);
 });
 
-test("sticker labels are always visible", async () => {
+test("the portrait shadow follows the transparent silhouette", async () => {
+  const css = await readFile(new URL("style.css", root), "utf8");
+
+  assert.match(css, /\.card-portrait img\s*\{[^}]*box-shadow:\s*none[^}]*filter:\s*drop-shadow\([^}]*transform:\s*scale\(1\.75\)/s);
+});
+
+test("sticker and portrait labels are always visible", async () => {
   const css = await readFile(new URL("style.css", root), "utf8");
 
   assert.match(
     css,
-    /\.sticker\s*>\s*span\s*\{[^}]*opacity:\s*1[^}]*transform:\s*translate\(-50%,\s*0\)/s,
+    /\.sticker\s*>\s*span,\s*\.card-portrait\s*>\s*span\s*\{[^}]*opacity:\s*1[^}]*transform:\s*translate\(-50%,\s*0\)/s,
   );
 });
 

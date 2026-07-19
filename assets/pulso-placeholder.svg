@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 625" role="img" aria-labelledby="title desc">
   <title id="title">Pulso Lanzarote</title>
-  <desc id="desc">Ilustración temporal de Lanzarote, eventos y actividad local.</desc>
+  <desc id="desc">Ilustración de Lanzarote, eventos y actividad local.</desc>
   <defs><linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#8ec9ff"/><stop offset="1" stop-color="#f6a86d"/></linearGradient></defs>
   <rect width="1000" height="625" fill="url(#sky)"/>
   <circle cx="785" cy="126" r="70" fill="#fff3a8" opacity=".88"/>

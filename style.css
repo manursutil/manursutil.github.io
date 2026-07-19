@@ -232,7 +232,8 @@ a {
   transition: opacity 180ms ease, transform 180ms ease;
 }
 
-.sticker > span {
+.sticker > span,
+.card-portrait > span {
   opacity: 1;
   transform: translate(-50%, 0);
 }
@@ -259,9 +260,15 @@ a {
   --drift-duration: 7.4s;
   --drift-delay: -1.2s;
   top: 35%;
-  left: 5%;
+  left: 10%;
   width: min(18vw, 17rem);
   height: min(36vh, 22rem);
+}
+
+.card-portrait img {
+  box-shadow: none;
+  filter: drop-shadow(0 15px 13px var(--shadow));
+  transform: scale(1.75);
 }
 
 .card-snake {
